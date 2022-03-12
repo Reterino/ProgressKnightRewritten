@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'node_modules/@angular/material/index' as mat;
+
+
+
+@include mat.core();
+
+@import 'frameworks/tailwind.dist.scss';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~angular-notifier/styles.css';

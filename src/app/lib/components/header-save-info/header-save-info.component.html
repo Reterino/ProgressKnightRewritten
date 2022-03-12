@@ -1,0 +1,8 @@
+<div class="flex w-full h-full items-center pr-1">
+		<div class="font-bold">Last Save:</div>
+		<div class="pl-1" [ngClass]="diffFromNow() > 3600000 ? 'text-amber-800' : 'text-green-800'">{{ timeSinceLastSave() }}</div>
+		<div class="flex cursor-pointer items-center" (click)="saveNow()">
+				<i class="fa fa-save text-base pl-2"></i>
+				<div class="pl-1 text-xs underline">Save Now</div>
+		</div>
+</div>

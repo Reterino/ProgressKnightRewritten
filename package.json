@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"npx tailwindcss -i src/assets/styles/frameworks/tailwind.scss -o src/assets/styles/frameworks/tailwind.dist.scss -w\" \"cross-env TAILWIND_MODE=watch ng serve --port 4240\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prestart": "ngtw build"
   },
   "private": true,
   "dependencies": {
@@ -15,9 +16,22 @@
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
     "@angular/forms": "~13.2.0",
+    "@angular/material": "^13.2.6",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/tailwindcss": "^3.0.9",
+    "angular-notifier": "^11.0.0",
+    "break_infinity.js": "^2.0.0",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "mathjs": "^10.4.0",
+    "moment": "^2.29.1",
+    "ng-tailwindcss": "^2.3.4",
+    "postcss": "^8.4.8",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -34,6 +48,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "tailwindcss": "^3.0.23",
     "typescript": "~4.5.2"
   }
 }

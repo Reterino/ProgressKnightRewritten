@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component }       from '@angular/core';
+import { GameSaveService } from './lib/services/game-save.service';
+
+
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+	           selector   : 'app-root',
+	           templateUrl: './app.component.html',
+	           styleUrls  : [ './app.component.scss' ]
+           })
 export class AppComponent {
-  title = 'BasicIncremental';
+	title = 'BasicIncremental';
+
+	constructor(private gameSaveSvc: GameSaveService) {
+		this.gameSaveSvc.start();
+	}
 }
