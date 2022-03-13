@@ -3,7 +3,6 @@ import { CommonModule }            from '@angular/common';
 import { HeaderBarComponent }      from './components/header-bar/header-bar.component';
 import { FooterBarComponent }      from './components/footer-bar/footer-bar.component';
 import { HeaderSaveInfoComponent } from './components/header-save-info/header-save-info.component';
-import { GeneratorComponent } from './components/generator/generator.component';
 
 
 
@@ -13,15 +12,13 @@ import { GeneratorComponent } from './components/generator/generator.component';
 		          HeaderBarComponent,
 		          FooterBarComponent,
 		          HeaderSaveInfoComponent,
-            GeneratorComponent
 	          ],
 	          imports     : [
 		          CommonModule
 	          ],
 	          exports: [
 		          HeaderBarComponent,
-		          FooterBarComponent,
-		          GeneratorComponent
+		          FooterBarComponent
 	          ]
           })
 export class LibModule {}

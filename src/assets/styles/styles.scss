@@ -5,6 +5,53 @@
 
 @include mat.core();
 
+$themePalette  : (
+				50: theme('colors.themeColor01.50'),
+				100: theme('colors.themeColor01.100'),
+				200: theme('colors.themeColor01.200'),
+				300: theme('colors.themeColor01.300'),
+				400: theme('colors.themeColor01.400'),
+				500: theme('colors.themeColor01.500'),
+				600: theme('colors.themeColor01.600'),
+				700: theme('colors.themeColor01.700'),
+				800: theme('colors.themeColor01.800'),
+				900: theme('colors.themeColor01.900'),
+				A100: theme('colors.themeColor01.100'),
+				A200: theme('colors.themeColor01.200'),
+				A400: theme('colors.themeColor01.400'),
+				A700: theme('colors.themeColor01.700'),
+				contrast: (
+								50: theme('colors.themeColor01.700'),
+								100: theme('colors.themeColor01.400'),
+								200: theme('colors.themeColor01.200'),
+								300: theme('colors.themeColor01.100'),
+								400: theme('colors.themeColor01.900'),
+								500: theme('colors.themeColor01.800'),
+								600: theme('colors.themeColor01.700'),
+								700: theme('colors.themeColor01.600'),
+								800: theme('colors.themeColor01.500'),
+								900: theme('colors.themeColor01.400'),
+								A100: theme('colors.themeColor01.300'),
+								A200: theme('colors.themeColor01.200'),
+								A400: theme('colors.themeColor01.100'),
+								A700: theme('colors.themeColor01.50'),
+				)
+);
+
+$basic-primary : mat.define-palette($themePalette);
+$basic-accent  : mat.define-palette($themePalette, A200, A100, A400);
+$basic-warn    : mat.define-palette(mat.$red-palette);
+
+$basic-theme   : mat.define-dark-theme((
+				color: (
+								primary: $basic-primary,
+								accent: $basic-accent,
+								warn: $basic-warn
+				)
+));
+
+@include mat.all-component-themes($basic-theme);
+
 @import 'frameworks/tailwind.dist.scss';
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '~angular-notifier/styles.css';

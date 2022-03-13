@@ -1,3 +1,56 @@
-<div class="flex w-full h-full items-center justify-center">
-		Money info will go here
+<div class="w-full h-full">
+		<div class="flex h-full w-full rounded-xl border border-themeColor01-200 py-2 px-4 bg-themeColor01-400">
+				<div class="flex flex-col w-1/4 h-full">
+						<div class="text-themeColor01-800 flex">
+								<div class="font-bold">Age:</div>
+								<div class="pl-1">{{formatSvc.formatAge(14*365 + 1000)}}</div>
+						</div>
+						<div class="flex-1"></div>
+						<div class="flex text-themeColor01-600 font-light">
+								<div class="">Lifespan:</div>
+								<div class="pl-1">{{formatSvc.formatAge(gameDefaultValuesSvc.endAgeInDays)}}</div>
+						</div>
+				</div>
+				<div class="flex flex-col w-1/4 h-full">
+						<div class="flex">
+								<div class="font-bold text-themeColor01-800">Balance:</div>
+								<div class="font-bold pl-1" [innerHTML]="formatSvc.formatCurrency(123456789)"></div>
+						</div>
+						<div class="flex-1"></div>
+						<div class="text-xs flex items-center text-themeColor01-800">
+								<i class="fa fa-circle-dot text-3xs pr-0.5 text-themeColor01-700"></i>
+								<div class="">Net/day:</div>
+								<i class="text-2xs fa fa-plus text-green-800 pl-1"></i>
+								<div class="" [innerHTML]="formatSvc.formatCurrency(12345)"></div>
+						</div>
+						<div class="text-xs flex items-center text-green-800">
+								<i class="fa fa-circle-dot text-3xs pr-0.5 text-green-900"></i>
+								<div class="">Income/day:</div>
+								<div class="pl-1" [innerHTML]="formatSvc.formatCurrency(123456)"></div>
+						</div>
+						<div class="text-xs flex items-center text-red-800">
+								<i class="fa fa-circle-dot text-3xs pr-0.5 text-red-900"></i>
+								<div class="">Expense/day:</div>
+								<div class="pl-1" [innerHTML]="formatSvc.formatCurrency(123456)"></div>
+						</div>
+				</div>
+				<div class="flex flex-col w-1/4 h-full justify-end">
+						<div class="text-themeColor01-800 flex justify-end">
+								<div class="font-bold">Happiness:</div>
+								<div class="pl-1">{{'1.0'}}</div>
+						</div>
+						<div class="flex-1"></div>
+						<div class="flex text-2xs font-light justify-end">
+								<div class="text-themeColor01-600">Affects XP gain.</div>
+						</div>
+				</div>
+				<div class="relative flex flex-col w-1/4 h-full items-end justify-center pr-4">
+						<div class="flex w-20 h-8 items-center justify-center p-1 rounded text-themeColor01-400 border border-themeColor01-900 bg-themeColor01-700 cursor-pointer"
+						     (click)="gameStartSvc.pause()">
+								<i class="fa pr-1 text-lg" [ngClass]="gameStartSvc.gamePlaying ? 'fa-pause' : 'fa-play'"></i>
+								{{gameStartSvc.gamePlaying ? 'Pause' : 'Play'}}
+						</div>
+						<div *ngIf="!gameStartSvc.gamePlaying" class="absolute bottom-3 text-red-800 text-2xs">Game currently paused!</div>
+				</div>
+		</div>
 </div>

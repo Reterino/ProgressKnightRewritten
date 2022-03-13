@@ -1,5 +1,5 @@
-import { Injectable }      from '@angular/core';
-import * as moment         from 'moment';
+import { EventEmitter, Injectable } from '@angular/core';
+import * as moment                  from 'moment';
 import { SaveGameIntf }    from '../types/types';
 import { NotifierService } from 'angular-notifier';
 
@@ -18,7 +18,11 @@ export class GameSaveService {
 	};
 	private readonly notifier: NotifierService;
 
-	constructor(notifierService: NotifierService) {
+	public gameLoadedEmitter: EventEmitter<any> = new EventEmitter<any>();
+
+	constructor(
+			notifierService: NotifierService
+	) {
 		this.notifier = notifierService;
 	}
 
@@ -34,6 +38,7 @@ export class GameSaveService {
 
 		// Checks against default name, probably better way to do this.
 		if (this.saveFile.name !== 'nullDefaultSaveName') {
+			this.gameLoadedEmitter.emit();
 			// SetTimeout to ensure DOM has loaded before notifier tries to run.
 			setTimeout(() => {
 				this.notifier.notify('success', 'Loaded Save Game!', 'load');

@@ -8,13 +8,18 @@ export interface SaveGameIntf {
 	lastSaveTime: moment.Moment
 }
 
-export interface GeneratorIntf {
+export interface JobIntf {
+	id: number;
 	label: string;
-	currentCount: number;
-	purchasedCount: number;
-	currentCost: number;
-	baseCost: number;
-	costIncrease: number;
-	bonus: number;
-	increasePerSec: number;
+	level: number;
+	totalXP: number;
+	baseIncome: number;
+	baseXPGain: number;
+	baseXPCost: number;
+	XPCostScaling: number;
+}
+
+export interface CurrencyIntf {
+	label: string;
+	shorthand: string;
 }

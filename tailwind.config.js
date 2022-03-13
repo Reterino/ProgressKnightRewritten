@@ -3,7 +3,8 @@ const colors = require('tailwindcss/colors');
 module.exports = {
 	darkMode: "class",
 	content : [
-		"./src/**/*.{html,ts,js}"
+		"./src/**/*.{html,ts,js}",
+		"./src/assets/styles/frameworks/tailwind-safelist.txt"
 	],
 	theme   : {
 		minWidth  : {
@@ -19,7 +20,12 @@ module.exports = {
 		},
 		extend    : {
 			colors  : {
-				themeColor01: colors.neutral
+				themeColor01: colors.neutral,
+				copper: '#905926',
+				silver: '#d5d5d5',
+				gold: '#FFD700',
+				platinum: '#0997af',
+				obsidian: '#6d4b81',
 			},
 			fontSize: {
 				'3xs': '0.5rem',

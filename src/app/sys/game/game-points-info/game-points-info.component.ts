@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }        from '@angular/core';
+import { FormatterService }         from '../../../lib/services/formatter.service';
+import { GameStartService }         from '../../../lib/services/game-start.service';
+import { GameDefaultValuesService } from '../../../lib/services/game-default-values.service';
 
 @Component({
   selector: 'app-game-points-info',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePointsInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+			public formatSvc: FormatterService,
+			public gameStartSvc: GameStartService,
+			public gameDefaultValuesSvc: GameDefaultValuesService
+  ) {
+  }
 
   ngOnInit(): void {
   }
