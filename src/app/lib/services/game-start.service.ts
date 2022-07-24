@@ -1,5 +1,6 @@
 import { Injectable }      from '@angular/core';
-import { GameSaveService } from './game-save.service';
+import { GameSaveService }          from './game-save.service';
+import { endAgeDays, startAgeDays } from '../config/misc.config';
 
 
 
@@ -11,7 +12,7 @@ export class GameStartService {
 
 	public gamePlaying: boolean = false;
 
-	public defaultLifeSpanInDays: number = 20440;
+	public defaultLifeSpanDays: number = endAgeDays - startAgeDays;
 
 	constructor(
 			private gameSaveSvc: GameSaveService

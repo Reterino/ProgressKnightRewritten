@@ -1,13 +1,12 @@
-<div class="flex w-full h-8 text-sm text-themeColor01-200 gap-1 p-1">
+<div class="flex w-full h-8 text-sm text-neutral-200 gap-1 p-1">
 
-		<div class="relative h-full w-1/3 flex items-center justify-center border border-themeColor01-800 bg-themeColor01-500 cursor-pointer" (click)="clickedJob.emit(job.id)">
-				<div class="absolute inset-0 h-full bg-themeColor01-100" [ngStyle]="{width: (job.totalXP/job.baseXPCost)*100 + '%'}"></div>
-				<div class="flex justify-center w-full text-xs z-10 text-themeColor01-900">{{job.label}}</div>
+		<div class="relative h-full w-1/3 flex items-center justify-center border border-neutral-800 bg-neutral-500 cursor-pointer" (click)="clickedJob.emit(jobConfig.jobName)">
+				<div class="absolute inset-0 h-full bg-neutral-100" [ngStyle]="{width: ((jobData?.xp || 0)/jobConfig.maxXp)*100 + '%'}"></div>
+				<div class="flex justify-center w-full text-xs z-10 text-neutral-900">{{jobConfig.jobName}}</div>
 		</div>
 
-		<div class="pl-4 w-1/6">{{formatSvc.formatNumber(job.level)}}</div>
-		<div class="w-1/6" [innerHTML]="formatSvc.formatCurrency(job.baseIncome)"></div>
-		<div class="w-1/6">{{formatSvc.formatNumber(job.baseXPGain)}}</div>
-		<div class="w-1/6">{{formatSvc.formatNumber(job.baseXPCost - job.totalXP)}}</div>
-
+		<div class="pl-4 w-1/6">{{formatSvc.formatNumber((jobData?.xp || 0) / jobConfig.maxXp)}}</div>
+		<div class="w-1/6" [innerHTML]="formatSvc.formatCurrency(jobConfig.income)"></div>
+		<div class="w-1/6">{{formatSvc.formatNumber(jobConfig.maxXp)}}</div>
+		<div class="w-1/6">{{formatSvc.formatNumber(jobConfig.maxXp - (jobData?.xp || 0))}}</div>
 </div>

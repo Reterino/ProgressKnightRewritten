@@ -20,7 +20,7 @@ module.exports = {
 		},
 		extend    : {
 			colors  : {
-				themeColor01: colors.neutral,
+				neutral: colors.neutral,
 				copper: '#905926',
 				silver: '#d5d5d5',
 				gold: '#FFD700',

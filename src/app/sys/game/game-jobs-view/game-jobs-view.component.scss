@@ -1,0 +1,5 @@
+// TODO: Fix this selector.
+
+* > .jobRequirementsNotMe:not(:first-of-type) {
+	display: none;
+}

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { JobIntf }                                        from '../../../../lib/types/types';
-import { FormatterService }                 from '../../../../lib/services/formatter.service';
+import { LevelIntf }                             from '../../../../lib/types/types';
+import { FormatterService }                               from '../../../../lib/services/formatter.service';
+import { JobConfigIntf }                                  from '../../../../lib/config/jobs.config';
 
 @Component({
   selector: 'app-game-job',
@@ -9,7 +10,8 @@ import { FormatterService }                 from '../../../../lib/services/forma
 })
 export class GameJobComponent implements OnInit {
 
-	@Input() job!: JobIntf;
+	@Input() jobConfig!: JobConfigIntf;
+	@Input() jobData: LevelIntf | undefined;
 	@Output() clickedJob: EventEmitter<any> = new EventEmitter<any>()
 
   constructor(
